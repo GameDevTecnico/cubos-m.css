@@ -57,7 +57,11 @@
   {% if not page.cover %}
   <meta name="twitter:card" content="summary" />
   {% endif %}
+  {% if page.landing %}
+  <meta property="og:type" content="website" />
+  {% else %}
   <meta property="og:type" content="page" />
+  {% endif %}
 {% endblock %}
 
 {% block extra %}
