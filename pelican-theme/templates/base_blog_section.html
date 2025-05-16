@@ -32,7 +32,7 @@
             <div id="thumbnail" style="background-image: url('{{ article.cover|expand_link(article)|e }}');"></div>
             {% endif %}
             <div>
-              <h3>{{ article.title|e }}</h3>
+              <h3>{{ article.title }}</h3>
               {{ article.summary|dehyphenate|striptags|e }}
               <br>
               <time class="m-text m-dim" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
