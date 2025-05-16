@@ -37,7 +37,10 @@
   <meta property="og:title" content="{{ page.title }}" />
   <meta name="twitter:title" content="{{ page.title }}" />
   <meta property="og:url" content="{{ page.url|format_siteurl|e }}" />
-  {% if page.summary %}
+  {% if page.landing and M_SOCIAL_BLOG_SUMMARY %}
+  <meta property="og:description" content="{{ M_SOCIAL_BLOG_SUMMARY|e }}" />
+  <meta name="twitter:description" content="{{ M_SOCIAL_BLOG_SUMMARY|e }}" />
+  {% elif page.summary %}
   <meta property="og:description" content="{{ page.summary|dehyphenate|striptags|e }}" />
   <meta name="twitter:description" content="{{ page.summary|dehyphenate|striptags|e }}" />
   {% endif %}
