@@ -91,6 +91,7 @@ img-comparison-slider .before figcaption {
 img-comparison-slider .after figcaption {
   right: 0;
 }
+
 a.m-doc, a.m-doc-self, a.m-doc-external,
 ul.m-doc li.m-doc-expansible > a:first-child, ul.m-doc li.m-doc-collapsible > a:first-child,
 .m-code.m-inverted.m-doc-include > a {
