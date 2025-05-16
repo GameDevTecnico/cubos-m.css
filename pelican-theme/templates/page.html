@@ -29,6 +29,8 @@
 {% block meta %}
   {% if page.description %}
   <meta name="description" content="{{ page.description|dehyphenate|striptags|e }}" />
+  {% elif page.landing and M_BLOG_DESCRIPTION %}
+  <meta name="description" content="{{ M_BLOG_DESCRIPTION|dehyphenate|striptags|e }}" />
   {% endif %}
 {% endblock %}
 
