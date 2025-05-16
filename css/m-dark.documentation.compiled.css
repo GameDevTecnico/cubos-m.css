@@ -24,15 +24,6 @@
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE SOFTWARE.
 */
-:root {
-  --cubos-shade1: #354C61;
-:root {
-  --cubos-shade2: #263645;
-:root {
-  --cubos-shade3: #1C2833;
-:root {
-  --cubos-shade4: #121A21; 
-}
 h1,
 .h1 {
   font-family: 'Russo One', sans-serif;
@@ -84,8 +75,8 @@ img-comparison-slider .after {
 }
 img-comparison-slider .before figcaption,
 img-comparison-slider .after figcaption {
-  background: var(--cubos-shade2);
-  border: 1px solid var(--cubos-shade3);
+  background: #263645;
+  border: 1px solid #1C2833;
   color: #FFFFFF;
   opacity: 0.8;
   padding: 12px;
@@ -185,7 +176,7 @@ ul.m-doc li.m-doc-expansible > ul.m-doc, ul.m-doc li.m-doc-collapsible > ul.m-do
   margin-left: 0.5rem;
 }
 ul.m-doc li.m-doc-expansible > a:first-child::before, ul.m-doc li.m-doc-collapsible > a:first-child::before {
-  background-color: var(--cubos-shade4);
+  background-color: #121A21;
   display: inline-block;
   width: 0.4rem;
   font-weight: bold;
@@ -322,7 +313,7 @@ a.m-doc-search-icon:focus svg, a.m-doc-search-icon:hover svg, a.m-doc-search-ico
   float: right;
 }
 .m-doc-search-content {
-  background-color: var(--cubos-shade3);
+  background-color: #1C2833;
   border-radius: 0.2rem;
   padding: 1rem;
 }
@@ -332,7 +323,7 @@ a.m-doc-search-icon:focus svg, a.m-doc-search-icon:hover svg, a.m-doc-search-ico
   font-size: 1.2rem;
   border-width: 0;
   color: #D9DDDE;
-  background-color: var(--cubos-shade3);
+  background-color: #1C2833;
   border-radius: 0.2rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
@@ -373,7 +364,7 @@ a.m-doc-search-icon:focus svg, a.m-doc-search-icon:hover svg, a.m-doc-search-ico
   margin-right: -0.75rem;
 }
 .m-doc-search ul#search-results li#search-current a {
-  background-color: var(--cubos-shade3);
+  background-color: #1C2833;
 }
 .m-doc-search ul#search-results li#search-current.m-doc-search-copied a {
   background-color: #2a703f;
