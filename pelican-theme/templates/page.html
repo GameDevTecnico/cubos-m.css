@@ -41,7 +41,7 @@
   <meta property="og:description" content="{{ page.summary|dehyphenate|striptags|e }}" />
   <meta name="twitter:description" content="{{ page.summary|dehyphenate|striptags|e }}" />
   {% endif %}
-  {% if page.cover %}
+  {% if page.cover and not page.landing %}
   <meta property="og:image" content="{{ page.cover|expand_link(page)|e }}" />
   <meta name="twitter:image" content="{{ page.cover|expand_link(page)|e }}" />
   <meta name="twitter:card" content="summary_large_image" />
