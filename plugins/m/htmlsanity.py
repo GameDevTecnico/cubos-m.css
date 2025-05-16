@@ -482,6 +482,8 @@ class SaneHtmlTranslator(HTMLTranslator):
             style += ['width: {}'.format(node['width'])]
         if style:
             atts['style'] = '; '.join(style)
+        if node.get('slot'):
+            atts['slot'] = node['slot']
         self.body.append(self.starttag(node, 'figure', **atts))
 
     def depart_figure(self, node):

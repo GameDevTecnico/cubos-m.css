@@ -22,16 +22,25 @@
     <div class="m-col-m-10">
       {% block content_title %}
       {% endblock content_title %}
-      {% for article in articles_page.object_list %}
-      <article>
-        {% macro header() %}{% include "article_header.html" %}{% endmacro %}
-        {{ header()|rtrim|indent(8) }}
-        <footer>
-          {% macro footer() %}{% include "article_footer.html" %}{% endmacro %}
-          {{ footer()|rtrim|indent(10) }}
-        </footer>
-        <div class="m-clearfix-l"></div>
-      </article>
+      {% set article_list = articles_page.object_list|batch(2) %}
+      {% for articles in article_list %}
+      <div class="m-row">
+        {% for article in articles %}
+        <div class="m-col-m-6">
+          <a class="article" href="{{ SITEURL }}/{{ article.url }}">
+            {% if article.cover %}
+            <div id="thumbnail" style="background-image: url('{{ article.cover|expand_link(article)|e }}');"></div>
+            {% endif %}
+            <div>
+              <h3>{{ article.title|e }}</h3>
+              {{ article.summary|dehyphenate|striptags|e }}
+              <br>
+              <time class="m-text m-dim" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
       {% endfor %}
       {% if articles_page.has_other_pages() %}
       {% macro pagination() %}{% include 'pagination.html' %}{% endmacro %}

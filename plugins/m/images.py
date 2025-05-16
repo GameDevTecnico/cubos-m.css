@@ -291,7 +291,6 @@ class ImageGrid(rst.Directive):
 
         return [grid_node]
 
-
 # Element with custom tag
 
 # Check out the page below for a full list of properties we could support:
@@ -303,6 +302,8 @@ class image_comparison_slider(nodes.Element):
 class ImageComparison(rst.Directive):
     option_spec = {'before': directives.uri,
                    'after': directives.uri,
+                   'before-label': directives.unchanged,
+                   'after-label': directives.unchanged,
                    'class': directives.class_option}
     has_content = False
 
@@ -311,13 +312,29 @@ class ImageComparison(rst.Directive):
         image_comparison_node = image_comparison_slider()
         image_comparison_node['classes'] += self.options.get('class', [])
 
+        before_caption_text_nodes, _ = self.state.inline_text(self.options['before-label'], self.lineno)
+        before_caption_node = nodes.caption()
+        before_caption_node.append(nodes.paragraph('', '', *before_caption_text_nodes))
+
+        after_caption_text_nodes, _ = self.state.inline_text(self.options['after-label'], self.lineno)
+        after_caption_node = nodes.caption()
+        after_caption_node.append(nodes.paragraph('', '', *after_caption_text_nodes))
+
         before_image_reference = rst.directives.uri(self.options['before'])
-        before_image_node = nodes.image('', uri=before_image_reference, width='100%', slot='before')
-        image_comparison_node.append(before_image_node)
+        before_figure_node = nodes.figure('')
+        before_figure_node['slot'] = 'first'
+        before_figure_node['classes'] += ['before']
+        before_figure_node.append(nodes.image('', uri=before_image_reference, width='100%'))
+        before_figure_node.append(before_caption_node)
+        image_comparison_node.append(before_figure_node)
 
         after_image_reference = rst.directives.uri(self.options['after'])
-        after_image_node = nodes.image('', uri=after_image_reference, width='100%', slot='after')
-        image_comparison_node.append(after_image_node)
+        after_figure_node = nodes.figure('')
+        after_figure_node['slot'] = 'second'
+        after_figure_node['classes'] += ['after']
+        after_figure_node.append(nodes.image('', uri=after_image_reference, width='100%'))
+        after_figure_node.append(after_caption_node)
+        image_comparison_node.append(after_figure_node)
 
         return [image_comparison_node]
 

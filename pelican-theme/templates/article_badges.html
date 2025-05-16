@@ -1,5 +1,5 @@
 {% if article.author and article.author.badge %}
-<div class="m-block m-success{% if article.author.image %} m-badge{% endif %}">
+<div class="m-block m-info{% if article.author.image %} m-badge{% endif %}">
   {% if article.author.image %}
   <img src="{{ article.author.image|expand_link(article)|e }}" alt="{{ article.author|e }}" />
   {% endif %}

@@ -1871,18 +1871,18 @@ body > header > nav {
 }
 body > header > nav.m-navbar-landing,
 body > header > nav.m-navbar-cover {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.75);
   position: relative;
 }
 body > header > nav.m-navbar-landing {
-  opacity: 0.8;
+  opacity: 1;
 }
 body > header > nav.m-navbar-cover {
   background-color: rgba(255, 255, 255, 0.25);
   opacity: 1;
 }
 body > header > nav.m-navbar-landing:hover,
-body > header > nav.m-navbar-cover:hover {
+body > header > nav.m-navbar-cover {
   background-color: rgba(255, 255, 255, 0.75);
   opacity: 1;
 }
@@ -2176,6 +2176,7 @@ article section > h4 a, article section > h5 a, article section > h6 a {
   background-color: #666666;
   background-position: center center;
   background-repeat: no-repeat;
+  background-blend-mode: darken;
   margin-top: -4rem;
   padding-top: 5rem;
 }
@@ -2245,18 +2246,45 @@ article#m-jumbo.m-inverted > header, article#m-jumbo.m-inverted > header h1, art
 article#m-jumbo.m-inverted > header a:hover, article#m-jumbo.m-inverted > header a:focus, article#m-jumbo.m-inverted > header a:active {
   color: #0f0f0f;
 }
-.m-landing-news h3 a {
+a.article  {
   color: #000000;
   text-decoration: none;
-  text-transform: uppercase;
 }
-.m-landing-news h3 a:hover, .m-landing-news h3 a:hover, .m-landing-news h3 a:focus, .m-landing-news h3 a:active {
-  color: #cb4b16;
+a.article:hover h3 {
+  color: #802f0e;
 }
-.m-landing-news time {
+a.article:hover h4 {
+  color: #802f0e;
+}
+a.article:hover #thumbnail {
+  filter: brightness(115%);
+}
+a.article h3 {
+  color: #000000;
+  margin-top:  0.75rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+#previous-articles a.article h3 {
+  margin-top: 0.75rem;
+}
+#previous-articles a.article time {
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+}
+a.article h4 {
+  color: #000000;
+  text-decoration: none;
+}
+a.article #thumbnail {
+  margin-bottom: 0.5rem;
+  background-size: cover;
+  aspect-ratio: 16/9;
+  border-radius: 0.2rem;
+}
+a.article time {
+  margin-top: 1rem;
   display: inline-block;
-  margin-left: 1rem;
-  float: right;
 }
 .m-article-pagination {
   text-align: center;

@@ -32,7 +32,7 @@
   --cubos-shade1: #354C61;
   --cubos-shade2: #263645;
   --cubos-shade3: #1C2833;
-  --cubos-shade4: #121A21;
+  --cubos-shade4: #121A21; 
   --cubos-background: #0B0C0D;
   --cubos-hovered: #00ACE6;
   --cubos-active: #00BFFF;
@@ -84,7 +84,7 @@
   --header-breadcrumb-color: #747474;
   /* same as --dim-color */
   --header-background-color: var(--cubos-shade3);
-  --header-background-color-landing: var(--cubos-shade3);
+  --header-background-color-landing: transparent;
   --header-background-color-jumbo: var(--cubos-shade3);
   --header-link-color: var(--cubos-main-text);
   --header-link-active-color: var(--cubos-active);
@@ -100,14 +100,14 @@
   --footer-link-active-color: var(--cubos-active);
 
   /* Cover image */
-  --cover-image-background-color: var(--cubos-shade4);
+  --cover-image-background-color: #0b0c0dac;
 
   /* Search (used only by m-documentation.css) */
   --search-overlay-color: var(--header-background-color-landing);
   --search-background-color: var(--header-background-color);
 
   /* Article */
-  --article-header-color: #f03f0f0;
+  --article-header-color: var(--cubos-main-text);
   --article-footer-color: #c5c5c5;
   --article-heading-color: var(--cubos-primary);
   --article-heading-active-color: var(--cubos-hovered);
@@ -156,12 +156,12 @@
   --danger-filled-link-color: #d85c59;
   --danger-filled-link-active-color: #ff9391;
 
-  --info-color: #2f83cc;
-  --info-link-active-color: #5297d7;
-  --info-filled-color: #a5caeb;
-  --info-filled-background-color: #2a4f70;
-  --info-filled-link-color: #5297d7;
-  --info-filled-link-active-color: #a5caeb;
+  --info-color: var(--cubos-primary);
+  --info-link-active-color: var(--cubos-active);
+  --info-filled-color: var(--color);
+  --info-filled-background-color: var(--cubos-shade1);
+  --info-filled-link-color: var(--cubos-hovered);
+  --info-filled-link-active-color: var(--cubos-active);
 
   --dim-color: #747474;
   --dim-link-color: #acacac;
@@ -198,6 +198,14 @@ h3,
   line-height: 1.4;
 }
 
+h4,
+.h4 {
+  font-family: 'Russo One', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 #m-navbar-brand {
   font-family: 'Russo One', sans-serif;
 }
@@ -207,4 +215,40 @@ h3,
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
   font-size: 30px;
+}
+
+/* Image comparison sliders */
+img-comparison-slider {
+  --divider-width: 1px;
+  --divider-color: var(--cubos-text);
+  --default-handle-color: var(--cubos-text);
+  --default-handle-width: clamp(40px, 10vw, 200px);
+}
+img-comparison-slider:focus {
+  --default-handle-opacity: 0.0;
+}
+img-comparison-slider .before,
+img-comparison-slider .after {
+  margin: 0;
+}
+
+img-comparison-slider .before figcaption,
+img-comparison-slider .after figcaption {
+  background: var(--cubos-shade2);
+  border: 1px solid var(--cubos-shade3);
+  color: var(--cubos-main-text);
+  opacity: 0.8;
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  margin: 0.5em;
+  line-height: 100%;
+}
+
+img-comparison-slider .before figcaption {
+  left: 0;
+}
+
+img-comparison-slider .after figcaption {
+  right: 0;
 }

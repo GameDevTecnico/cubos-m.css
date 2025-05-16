@@ -125,19 +125,54 @@
       </div>
     </div>
     {% if page.save_as == 'index.html' and not page.url and M_NEWS_ON_INDEX %}
-    <div class="m-row">
-      <div class="m-col-l-8 m-push-l-2">
-        <div><div class="m-note m-default m-landing-news">
-          <h3><a href="{{ M_BLOG_URL|format_siteurl|e }}">{{ M_NEWS_ON_INDEX[0]|e }} &raquo;</a></h3>
-          <ul class="m-unstyled">
-            {% for article in articles[0:M_NEWS_ON_INDEX[1]] %}
-            <li><time class="m-text m-dim" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a href="{{ article.url }}">{{ article.title|e }}</a></li>
+    <div class="m-container-inflatable m-landing-news">
+      <h2>{{ M_NEWS_ON_INDEX[0]|e }}</h2>
+      <div class="m-row">
+        <div class="m-col-l-8">
+          <div class="m-default">
+            {% for article in articles[0:1] %}
+            <a class="article" href="{{ SITEURL }}/{{ article.url }}">
+                {% if article.cover %}
+                <div id="thumbnail" style="background-image: url('{{ article.cover|expand_link(article)|e }}');"></div>
+                {% endif %}
+                <div>
+                  <h3>{{ article.title|e }}</h3>
+                  {{ article.summary|dehyphenate|striptags|e }}
+                  <br>
+                  <time class="m-text m-dim" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                </div>
+            </a>
             {% endfor %}
-          </ul>
+          </div>
         </div>
-      </div></div>
+        <div class="m-col-l-4">
+          <div class="m-default m-container-inflatable" id="previous-articles">
+            {% for article in articles[1:M_NEWS_ON_INDEX[2]] %}
+            <a class="article" href="{{ SITEURL }}/{{ article.url }}">
+                {% if article.cover %}
+                <div id="thumbnail" style="background-image: url('{{ article.cover|expand_link(article)|e }}');"></div>
+                {% endif %}
+                <div>
+                  <h3>{{ article.title|e }}</h3>
+                  <time class="m-text m-dim" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                </div>
+            </a>
+            {% endfor %}
+            <div class="m-button m-default m-fullwidth"><a href="{{ M_BLOG_URL|format_siteurl|e }}">{{ M_NEWS_ON_INDEX[1]|e }}</a></div>
+          </div>
+        </div>
+      </div>
     </div>
     {% endif %}
+  </div>
+  <div class="m-container">
+    {% if page.more_content %}
+        <!-- more content -->
+        {% block page_more_content -%}
+          {{- page.more_content|trim }}
+        {% endblock %}
+        <!-- /more content -->
+      {% endif %}
   </div>
 </article>
 {% if page.footer %}

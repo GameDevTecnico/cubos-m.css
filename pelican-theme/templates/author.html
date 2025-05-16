@@ -36,7 +36,7 @@
         Showing only posts by <em>{{ author|e }}</em>. <a href="{{ M_BLOG_URL|format_siteurl|e }}">Show all posts.</a>
       </div>
       {% if author.page and author.page.content and articles_page.number == 1 %}
-      <div class="m-block m-success{% if author.page.image %} m-badge{% endif %}">
+      <div class="m-block m-info{% if author.page.image %} m-badge{% endif %}">
         {% if author.page.image %}
         <img src="{{ author.page.image|expand_link(author.page)|e }}" alt="{{ author|e }}" />
         {% endif %}
