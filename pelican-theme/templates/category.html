@@ -17,8 +17,8 @@
   <meta name="twitter:description" content="{{ category.page.summary|dehyphenate|striptags|e }}" />
   {% endif %}
   {% if category.page and category.page.image %}
-  <meta property="og:image" content="{{ category.page.image|expand_link(category.page)|e }}" />
-  <meta name="twitter:image" content="{{ category.page.image|expand_link(category.page)|e }}" />
+  <meta property="og:image" content="{{ category.page.image|expand_link(category.page)|format_siteurl|e }}" />
+  <meta name="twitter:image" content="{{ category.page.image|expand_link(category.page)|format_siteurl|e }}" />
   {% elif M_SOCIAL_IMAGE %}
   <meta property="og:image" content="{{ M_SOCIAL_IMAGE|format_siteurl|e }}" />
   <meta name="twitter:image" content="{{ M_SOCIAL_IMAGE|format_siteurl|e }}" />

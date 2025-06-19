@@ -23,8 +23,8 @@
   <meta name="twitter:description" content="{{ author.page.summary|dehyphenate|striptags|e }}" />
   {% endif %}
   {% if author.page and author.page.image %}
-  <meta property="og:image" content="{{ author.page.image|expand_link(author.page)|e }}" />
-  <meta name="twitter:image" content="{{ author.page.image|expand_link(author.page)|e }}" />
+  <meta property="og:image" content="{{ author.page.image|expand_link(author.page)|format_siteurl|e }}" />
+  <meta name="twitter:image" content="{{ author.page.image|expand_link(author.page)|format_siteurl|e }}" />
   {% elif M_SOCIAL_IMAGE %}
   <meta property="og:image" content="{{ M_SOCIAL_IMAGE|format_siteurl|e }}" />
   <meta name="twitter:image" content="{{ M_SOCIAL_IMAGE|format_siteurl|e }}" />
